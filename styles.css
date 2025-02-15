@@ -1,0 +1,230 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Видеофон */
+#background-video {
+    position: fixed; /* Фиксированное положение */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%; /* Минимальная ширина = ширине экрана */
+    min-height: 100%; /* Минимальная высота = высоте экрана */
+    z-index: -1; /* За всем содержимым */
+    object-fit: cover; /* Автоматическое масштабирование */
+}
+
+/* Контейнер с контентом */
+.container {
+    max-width: 600px;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный чёрный фон */
+    border-radius: 10px;
+    z-index: 1;
+}
+
+/* Кнопка гамбургер */
+.menu-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #4285F4;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.menu-button:hover {
+    transform: scale(1.2);
+}
+
+/* Кнопка смены языка */
+.language-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.language-button img {
+    width: 30px;
+    height: 20px;
+}
+
+.language-button:hover {
+    transform: scale(1.2);
+}
+
+/* Аватарка */
+.avatar {
+    margin-bottom: 2rem;
+}
+
+.avatar-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Круглая аватарка */
+    object-fit: cover;
+    border: 3px solid #4285F4;
+}
+
+/* Заголовок и описание */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeIn 1s ease 0.5s forwards;
+}
+
+/* Социальные иконки */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.social-icon img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon img:hover {
+    transform: scale(1.2);
+}
+
+/* Боковые меню */
+.side-menu {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 300px;
+    background-color: rgba(0, 0, 0, 0.9); /* Тёмный фон меню */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 2;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.side-menu.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.left-menu {
+    left: -300px; /* Сначала скрыто */
+    transform: translateX(0); /* Появляется слева */
+}
+
+.left-menu.active {
+    transform: translateX(300px); /* Показывается */
+}
+
+.right-menu {
+    right: -300px; /* Сначала скрыто */
+    transform: translateX(0); /* Появляется справа */
+}
+
+.right-menu.active {
+    transform: translateX(-300px); /* Показывается */
+}
+
+.side-menu h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.side-menu p {
+    font-size: 1rem;
+    text-align: center;
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.side-menu li {
+    margin-bottom: 1rem;
+}
+
+.side-menu a {
+    color: #4285F4;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.side-menu a:hover {
+    color: #ffffff;
+}
+
+.project-button {
+    background-color: rgba(66, 133, 244, 0.7); /* Прозрачная кнопка */
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: not-allowed;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.project-button:hover {
+    background-color: rgba(66, 133, 244, 1);
+    transform: scale(1.1);
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

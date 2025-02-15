@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlitchElite</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Видеофон -->
+    <video autoplay muted loop id="background-video">
+        <source src="assets/background.mp4" type="video/mp4">
+        Ваш браузер не поддерживает видео.
+    </video>
+
+    <!-- Основной контент -->
+    <div class="container" id="content">
+        <!-- Кнопка гамбургер -->
+        <button class="menu-button" id="menuButton">☰</button>
+
+        <!-- Кнопка смены языка -->
+        <button class="language-button" id="languageButton">
+            <img src="assets/ru-flag.jpg" alt="Russian Flag" id="flagImage">
+        </button>
+
+        <!-- Аватарка -->
+        <div class="avatar">
+            <img src="assets/avatar.jpeg" alt="Аватарка" class="avatar-image">
+        </div>
+
+        <!-- Описание -->
+        <h1 id="greeting">Hello, I'm GlitchElite</h1>
+        <p id="aboutMe">
+            Name: Nikolay<br>
+            Nickname: GlitchElite<br>
+            Age: 17<br>
+            Country: Russia<br>
+            Programming is my hobby ❤️<br>
+            Channel: @AndromedaProject
+        </p>
+
+        <!-- Социальные ссылки -->
+        <div class="social-links">
+            <a href="https://t.me/yourtelegram" target="_blank" class="social-icon"><img src="assets/telegram-icon.png" alt="Telegram"></a>
+            <a href="https://vk.com/yourprofile" target="_blank" class="social-icon"><img src="assets/vk-icon.png" alt="VK"></a>
+            <a href="https://github.com/yourusername" target="_blank" class="social-icon"><img src="assets/github-icon.png" alt="GitHub"></a>
+            <a href="https://www.tiktok.com/@yourprofile" target="_blank" class="social-icon"><img src="assets/tiktok-icon.png" alt="TikTok"></a>
+            <a href="https://youtube.com/yourchannel" target="_blank" class="social-icon"><img src="assets/youtube-icon.png" alt="YouTube"></a>
+        </div>
+    </div>
+
+    <!-- Выезжающее меню -->
+    <div class="side-menu left-menu" id="projectsMenu">
+        <h2 id="projectsTitle">My Supported Projects</h2>
+        <ul>
+            <li><a href="https://t.me/andromedaproject" target="_blank">AndromedaProject</a></li>
+            <li><a href="https://t.me/camelliaandcamellian" target="_blank">Telegram Cloud</a></li>
+            <li><button class="project-button" id="githubCloudButton">GitHub Cloud</button></li>
+        </ul>
+    </div>
+
+    <!-- Выезжающее меню справа (Soon) -->
+    <div class="side-menu right-menu" id="githubSoonMenu">
+        <h2 id="soonTitle">Coming Soon</h2>
+        <p id="soonDescription">This section is under development.</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
