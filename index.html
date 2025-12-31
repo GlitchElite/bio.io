@@ -13,6 +13,7 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
 
+
 * {
     padding: 0;
     margin: 0;
@@ -120,7 +121,7 @@ h1:hover {
 
 .card {
     position: relative;
-    width: 400px;
+    width: 600px;
     border-radius: 10px;
     overflow: hidden;
     transition: .3s;
@@ -224,7 +225,7 @@ h1:hover {
     width: 110px;
     height: 110px;
     border-radius: 50%;
-    background: url('assets/avatar.jpeg') no-repeat center / cover;
+    background: url('assets/gerb.jpg') no-repeat center / cover;
     margin-bottom: 2px;
     overflow: hidden;
     cursor: pointer;
@@ -271,7 +272,7 @@ h1:hover {
 
 .content {
     display: flex;
-    padding: 1.7rem 2.5rem 2.6rem 2.5rem;
+    padding: 1rem 2rem 1.5rem 2rem;
     transition: .3s;
 }
 
@@ -583,6 +584,74 @@ h1:hover {
    color: #510080;
 }
 
+.tab-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 1rem;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 0 0 3px 0;
+    margin-bottom: .9rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.tab-btn:after {
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 0;
+    border-radius: 1.5px;
+    bottom: 0;
+    left: 0;
+    transition: all 0.3s;
+}
+
+.tab-btn.active:after {
+    width: 50%;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+/* Темная тема */
+.dark .tab-btn {
+    color: #fff;
+}
+
+.dark .tab-btn.active:after {
+    background-color: #fff;
+}
+
+.dark .tab-btn:not(.active) {
+    color: #ffffff80;
+}
+
+/* Светлая тема */
+.light .tab-btn {
+    color: #555;
+}
+
+.light .tab-btn.active:after {
+    background-color: #555;
+}
+
+.light .tab-btn:not(.active) {
+    color: #aaaaaa;
+}
+
 @media (max-width: 410px) {
     .content{
         flex-direction: column;
@@ -890,6 +959,642 @@ h1:hover {
         background-image: linear-gradient(to right, #7F00FF, #E100FF);
     }
   }
+  /* Сделать гамбургер и кнопку письма невидимыми */
+.checkbtn, .hamburger-menu, .mail {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* Также скрыть боковую панель */
+.sidebar {
+    display: none !important;
+}
+
+/* Скрыть кнопки Follow и Contact */
+.buttons-wrap {
+    display: none !important;
+}
+/* Горизонтальный режим для планшета */
+.music-player-tablet {
+    height: 100%;
+}
+
+.tablet-layout {
+    display: flex;
+    height: 100%;
+    gap: 15px;
+}
+
+/* Треки слева (30-40% ширины) */
+.tracks-side {
+    flex: 0 0 40%;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 15px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.tracks-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 15px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.tracks-list-tablet {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.track-tablet {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all 0.3s;
+    min-height: 60px;
+    flex-shrink: 0;
+}
+
+.track-tablet:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(5px);
+}
+
+.track-tablet.active {
+    background: rgba(115, 79, 150, 0.6);
+    border-color: rgba(115, 79, 150, 0.8);
+}
+
+.track-icon-tablet {
+    width: 35px;
+    height: 35px;
+    background: rgba(115, 79, 150, 0.8);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.track-icon-tablet i {
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+.track-info-tablet {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.track-name-tablet {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #fff;
+    margin-bottom: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.track-artist-tablet {
+    font-weight: 400;
+    font-size: 0.75rem;
+    opacity: 0.8;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.play-btn-tablet {
+    background: rgba(115, 79, 150, 0.8);
+    border: none;
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    flex-shrink: 0;
+    margin-left: 8px;
+}
+
+.play-btn-tablet:hover {
+    background: rgba(115, 79, 150, 1);
+    transform: scale(1.1);
+}
+
+/* Плеер справа (60-70% ширины) */
+.player-side {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 15px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.player-main-tablet {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.now-playing-tablet {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-left: 4px solid #734f96;
+}
+
+.now-playing-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(115, 79, 150, 0.9);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.now-playing-icon i {
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.now-playing-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.now-playing-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #fff;
+    opacity: 0.8;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.current-track-tablet {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+.controls-tablet {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+}
+
+.controls-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.control-tablet {
+    background: rgba(115, 79, 150, 0.8);
+    border: none;
+    color: #fff;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.control-tablet:hover {
+    background: rgba(115, 79, 150, 1);
+    transform: scale(1.1);
+}
+
+.control-tablet.play-pause-btn {
+    width: 55px;
+    height: 55px;
+    font-size: 1.3rem;
+    background: rgba(115, 79, 150, 1);
+}
+
+.progress-tablet {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.progress-bar-tablet {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress-fill-tablet {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #734f96, #9d4edd);
+    border-radius: 3px;
+    transition: width 0.1s;
+}
+
+.time-tablet {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #fff;
+    opacity: 0.9;
+}
+
+.volume-tablet {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.volume-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 10px;
+}
+
+.volume-header i {
+    font-size: 1rem;
+    color: #fff;
+}
+
+.volume-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.volume-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.volume-slider-tablet {
+    flex: 1;
+    height: 5px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    outline: none;
+}
+
+.volume-slider-tablet::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #734f96;
+    cursor: pointer;
+    border: 2px solid #fff;
+}
+
+.volume-value-tablet {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #fff;
+    min-width: 40px;
+    text-align: center;
+    background: rgba(115, 79, 150, 0.5);
+    padding: 4px 8px;
+    border-radius: 8px;
+}
+
+/* Для светлой темы */
+.light .tracks-side,
+.light .player-side {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.light .track-tablet {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.light .track-tablet:hover {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+.light .track-tablet.active {
+    background: rgba(127, 0, 255, 0.2);
+    border-color: rgba(127, 0, 255, 0.4);
+}
+
+.light .track-name-tablet,
+.light .track-artist-tablet,
+.light .now-playing-label,
+.light .current-track-tablet {
+    color: #333;
+}
+
+.light .now-playing-tablet {
+    background: rgba(0, 0, 0, 0.05);
+    border-left-color: #7F00FF;
+}
+
+.light .control-tablet {
+    background: rgba(127, 0, 255, 0.8);
+}
+
+.light .control-tablet:hover {
+    background: rgba(127, 0, 255, 1);
+}
+
+.light .progress-tablet,
+.light .volume-tablet {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.light .progress-bar-tablet {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.light .progress-fill-tablet {
+    background: linear-gradient(90deg, #7F00FF, #E100FF);
+}
+
+.light .volume-slider-tablet {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.light .volume-slider-tablet::-webkit-slider-thumb {
+    background: #7F00FF;
+}
+
+/* Скроллбар */
+.tracks-list-tablet::-webkit-scrollbar {
+    width: 5px;
+}
+
+.tracks-list-tablet::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.tracks-list-tablet::-webkit-scrollbar-thumb {
+    background: #734f96;
+    border-radius: 3px;
+}
+
+.light .tracks-list-tablet::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.light .tracks-list-tablet::-webkit-scrollbar-thumb {
+    background: #7F00FF;
+}
+
+/* Адаптация для вертикального режима */
+@media (max-width: 768px) {
+    .tablet-layout {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .tracks-side {
+        flex: 0 0 auto;
+        height: 200px;
+        margin-bottom: 15px;
+    }
+    
+    .tracks-list-tablet {
+        flex-direction: row;
+        flex-wrap: wrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+    
+    .track-tablet {
+        flex: 0 0 calc(50% - 5px);
+        margin-bottom: 5px;
+    }
+    
+    .player-side {
+        flex: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .track-tablet {
+        flex: 0 0 100%;
+    }
+/* ... ваш существующий CSS ... */
+
+@media (max-width: 480px) {
+    .track-tablet {
+        flex: 0 0 100%;
+    }
+    
+    .controls-row {
+        gap: 10px;
+    }
+    
+    .control-tablet {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+    
+    .control-tablet.play-pause-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 1.1rem;
+    }
+} /* закрывающая скобка от @media (max-width: 480px) */
+
+/* ВОТ СЮДА ДОБАВЬТЕ НОВЫЕ СТИЛИ ДЛЯ СКРОЛЛА: */
+
+/* Увеличим высоту контейнера с треками */
+.tracks-side {
+    flex: 0 0 40%;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 15px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    max-height: 500px; /* Ограничим общую высоту */
+    overflow: hidden; /* Скрываем переполнение общего контейнера */
+}
+
+/* Сделаем список треков прокручиваемым */
+.tracks-list-tablet {
+    flex: 1;
+    overflow-y: auto; /* Включаем вертикальную прокрутку */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 200px; /* Минимальная высота */
+}
+
+/* Улучшим отображение скроллбара */
+.tracks-list-tablet::-webkit-scrollbar {
+    width: 6px;
+}
+
+.tracks-list-tablet::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+.tracks-list-tablet::-webkit-scrollbar-thumb {
+    background: rgba(115, 79, 150, 0.7);
+    border-radius: 3px;
+}
+
+.tracks-list-tablet::-webkit-scrollbar-thumb:hover {
+    background: rgba(115, 79, 150, 0.9);
+}
+
+/* Для светлой темы */
+.light .tracks-list-tablet::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.light .tracks-list-tablet::-webkit-scrollbar-thumb {
+    background: rgba(127, 0, 255, 0.7);
+}
+
+.light .tracks-list-tablet::-webkit-scrollbar-thumb:hover {
+    background: rgba(127, 0, 255, 0.9);
+}  
+    .controls-row {
+        gap: 10px;
+    }
+    
+    .control-tablet {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+    
+    .control-tablet.play-pause-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 1.1rem;
+    }
+}
+/* УДАЛИТЕ или ИЗМЕНИТЕ эти стили: */
+.tracks-list-tablet {
+    flex: 1;
+    overflow-y: auto; /* Оставляем */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: none !important; /* Убираем ограничение высоты */
+    height: auto !important; /* Автоматическая высота */
+}
+
+/* Увеличим высоту контейнера с треками */
+.tracks-side {
+    flex: 0 0 40%;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 15px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    max-height: 500px; /* Ограничим общую высоту */
+    overflow: hidden; /* Скрываем переполнение общего контейнера */
+}
+
+/* Сделаем список треков прокручиваемым */
+.tracks-list-tablet {
+    flex: 1;
+    overflow-y: auto; /* Включаем вертикальную прокрутку */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 200px; /* Минимальная высота */
+}
+
+/* Улучшим отображение скроллбара */
+.tracks-list-tablet::-webkit-scrollbar {
+    width: 6px;
+}
+
+.tracks-list-tablet::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+.tracks-list-tablet::-webkit-scrollbar-thumb {
+    background: rgba(115, 79, 150, 0.7);
+    border-radius: 3px;
+}
+
+.tracks-list-tablet::-webkit-scrollbar-thumb:hover {
+    background: rgba(115, 79, 150, 0.9);
+}
+
+/* Для светлой темы */
+.light .tracks-list-tablet::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.light .tracks-list-tablet::-webkit-scrollbar-thumb {
+    background: rgba(127, 0, 255, 0.7);
+}
+
+.light .tracks-list-tablet::-webkit-scrollbar-thumb:hover {
+    background: rgba(127, 0, 255, 0.9);
+}
+
 </style>
 </head>
 
@@ -1882,7 +2587,7 @@ var pJS = function (e, a) {
      </div>
 
      <div class="modal">
-          <img src="assets/avatar.jpeg" alt="Eren">
+          <img src="assets/images/avatar.jpg" alt="Eren">
           <div class="close"></div>
      </div>
 
@@ -1891,9 +2596,9 @@ var pJS = function (e, a) {
           <div class="card">
                <div class="sidebar" id="sidebar">
                     <a class="active" href="AndromedaNews.html" target="https://github.com/GlitchElite">Andromeda News</a>
-                    <a class="active" href="" target="https://telegram.dog/FNxOwner">123</a>
-                    <a class="active" href="" target="https://www.youtube.com/@ElectraOp">123</a>
-                    <a class="active" href="" target="_blank">123</a>
+                    <a class="active" href="indexIRON.html" target="https://telegram.dog/FNxOwner">Iron</a>
+                    <a class="active" href="indexLOVELY.html" target="https://www.youtube.com/@ElectraOp">Lovely</a>
+                    <a class="active" href="index.html" target="_blank">GlitchElite</a>
                </div>
                <div class="header" onclick="toggle()">
                     <label for="check" class="checkbtn" id="chkbtn">
@@ -1918,37 +2623,281 @@ var pJS = function (e, a) {
                <div class="content">
                     <div class="left">
                          <div class="about-container">
-                              <h3 class="title">About</h3>
-                              <p class="text">1. Name - Nikolai</p>
-                              <p class="text">2. Nickname - GlitchElite</p>
-                              <p class="text">3. Age - 18</p>
-                              <p class="text">4. Country - Russia</p>
-                         </div>
-                         <div class="icons-container">
-                              <a href="https://github.com/GlitchElite" class="icon">
-                                   <i class="fa-brands fa-github"></i>
-                              </a>
-                              <a href="https://discordapp.com/users/805017715475480606" class="icon">
-                                   <i class="fa-brands fa-discord"></i>
-                              </a>
-                              <a href="https://t.me/GlitchElite/" class="icon">
-                                   <i class="fa-brands fa-telegram"></i>
-                              </a>
-                              <a href="https://tiktok.com/@glitchelite.com" class="icon">
-                                   <i class="fa-brands fa-tiktok"></i>
-                              </a>
-                              <a href="https://steamcommunity.com/profiles/76561199760580879/" class="icon">
-                                <i class="fa-brands fa-steam"></i>
-                           </a>
-                         </div>
-                         <div class="buttons-wrap">
-                              <div class="follow-wrap">
-                                   <a href="https://t.me/cloudprojectbyglitch" class="follow">Follow</a>
-                              </div>
-                              <div class="share-wrap">
-                                   <a href="https://t.me/GlitchElite/" class="share">Contact</a>
-                              </div>
-                         </div>
+    <div class="tab-buttons">
+        <button class="tab-btn active" data-tab="news">News</button>
+        <button class="tab-btn" data-tab="media">Media</button>
+        <button class="tab-btn" data-tab="massage">Massage</button>
+        <button class="tab-btn" data-tab="more">More</button>
+        <button class="tab-btn" data-tab="music">Music</button>
+    </div>
+    <div class="tab-content">
+        <div class="tab-pane active" id="news-tab">
+        <p class="text">Update: </p>
+        <p class="text">Soon...</p>
+        <p class="text"></p>
+        <p class="text"></p>
+    </div>
+    
+    <div class="tab-pane" id="media-tab">
+        <div class="icons-container">
+            <p class="text" style="font-weight: bold;">Steam:</p>
+            <p class="text">NikName: AD | 『мразь?』</p>
+            <p class="text">Link ----> <a href="https://steamcommunity.com/profiles/76561199760580879/" class="icon">
+                <i class="fa-brands fa-steam"></i>
+            </a></p>
+            
+            <p class="text" style="font-weight: bold;">Discord:</p>
+            <p class="text">NikName: GlitchElite</p>
+            <p class="text">Link ----> <a href="https://discordapp.com/users/805017715475480606" class="icon">
+                <i class="fa-brands fa-discord"></i>
+            </a></p>
+        </div>
+    </div>
+    
+    <div class="tab-pane" id="massage-tab">
+        <p class="text" style="font-weight: bold;">Telegram:</p>
+        <p class="text">NikName: #include "GlitchElite.h"</p>
+        <p class="text">ID: @GlitchElite</p>
+        <p class="text">Link ----> <a href="https://t.me/GlitchElite/" class="icon">
+            <i class="fa-brands fa-telegram"></i>
+        </a></p>
+        
+        <p class="text" style="font-weight: bold;">VK:</p>
+        <p class="text">NikName: Зайцев Николай</p>
+        <p class="text">ID: @GlitchElite</p>
+        <p class="text">Link ----> <a href="https://vk.com/glitchelite" class="icon">
+            <i class="fa-brands fa-vk"></i>
+        </a></p>
+    </div>
+    
+    <div class="tab-pane" id="more-tab">
+        <p class="text" style="font-weight: bold;">TikTok:</p>
+        <p class="text">NikName: glitchelite.com</p>
+        <p class="text">ID: @glitchelite.com</p>
+        <p class="text">Link ----> <a href="https://tiktok.com/@glitchelite.com" class="icon">
+            <i class="fa-brands fa-tiktok"></i>
+        </a></p>
+        
+        <p class="text" style="font-weight: bold;">GitHub:</p>
+        <p class="text">NikName: GlitchElite</p>
+        <p class="text">ID: @GlitchElite</p>
+        <p class="text">Link ----> <a href="https://github.com/GlitchElite" class="icon">
+            <i class="fa-brands fa-github"></i>
+        </a></p>
+    </div>
+    <div class="tab-pane" id="music-tab">
+    <div class="music-player-tablet">
+        <!-- Для горизонтального планшета - треки слева, плеер справа -->
+        <div class="tablet-layout">
+            <!-- Треки слева -->
+            <div class="tracks-side">
+               <div class="tracks-list-tablet">
+    <!-- СУЩЕСТВУЮЩИЕ 4 ТРЕКА -->
+    <div class="track-tablet" data-track="1" data-src="assets/music/1.mp3">
+        <div class="track-icon-tablet">
+            <i class="fa-solid fa-music"></i>
+        </div>
+        <div class="track-info-tablet">
+            <span class="track-name-tablet">ZYRE</span>
+            <span class="track-artist-tablet">Zynyx,KREZUS</span>
+        </div>
+        <button class="play-btn-tablet" data-track="1">
+            <i class="fa-solid fa-play"></i>
+        </button>
+    </div>
+    
+    <div class="track-tablet" data-track="2" data-src="assets/music/2.mp3">
+        <div class="track-icon-tablet">
+            <i class="fa-solid fa-music"></i>
+        </div>
+        <div class="track-info-tablet">
+            <span class="track-name-tablet">Midnight City</span>
+            <span class="track-artist-tablet">M83</span>
+        </div>
+        <button class="play-btn-tablet" data-track="2">
+            <i class="fa-solid fa-play"></i>
+        </button>
+    </div>
+    
+    <div class="track-tablet" data-track="3" data-src="assets/music/3.mp3">
+        <div class="track-icon-tablet">
+            <i class="fa-solid fa-music"></i>
+        </div>
+        <div class="track-info-tablet">
+            <span class="track-name-tablet">Starlight</span>
+            <span class="track-artist-tablet">Jai Wolf</span>
+        </div>
+        <button class="play-btn-tablet" data-track="3">
+            <i class="fa-solid fa-play"></i>
+        </button>
+    </div>
+    
+    <div class="track-tablet" data-track="4" data-src="assets/music/4.mp3">
+        <div class="track-icon-tablet">
+            <i class="fa-solid fa-music"></i>
+        </div>
+        <div class="track-info-tablet">
+            <span class="track-name-tablet">Digital Love</span>
+            <span class="track-artist-tablet">Daft Punk</span>
+        </div>
+        <button class="play-btn-tablet" data-track="4">
+            <i class="fa-solid fa-play"></i>
+        </button>
+    </div>
+    
+    <!-- ВОТ СЮДА ВСТАВЬТЕ НОВЫЕ ТРЕКИ ↓↓↓ -->
+    <div class="track-tablet" data-track="5" data-src="assets/music/5.mp3">
+        <div class="track-icon-tablet">
+            <i class="fa-solid fa-music"></i>
+        </div>
+        <div class="track-info-tablet">
+            <span class="track-name-tablet">Blinding Lights</span>
+            <span class="track-artist-tablet">The Weeknd</span>
+        </div>
+        <button class="play-btn-tablet" data-track="5">
+            <i class="fa-solid fa-play"></i>
+        </button>
+    </div>
+    
+    <div class="track-tablet" data-track="6" data-src="assets/music/6.mp3">
+        <div class="track-icon-tablet">
+            <i class="fa-solid fa-music"></i>
+        </div>
+        <div class="track-info-tablet">
+            <span class="track-name-tablet">Levitating</span>
+            <span class="track-artist-tablet">Dua Lipa</span>
+        </div>
+        <button class="play-btn-tablet" data-track="6">
+            <i class="fa-solid fa-play"></i>
+        </button>
+    </div>
+    
+    <div class="track-tablet" data-track="7" data-src="assets/music/7.mp3">
+        <div class="track-icon-tablet">
+            <i class="fa-solid fa-music"></i>
+        </div>
+        <div class="track-info-tablet">
+            <span class="track-name-tablet">Stay</span>
+            <span class="track-artist-tablet">The Kid LAROI, Justin Bieber</span>
+        </div>
+        <button class="play-btn-tablet" data-track="7">
+            <i class="fa-solid fa-play"></i>
+        </button>
+    </div>
+    
+    <div class="track-tablet" data-track="8" data-src="assets/music/8.mp3">
+        <div class="track-icon-tablet">
+            <i class="fa-solid fa-music"></i>
+        </div>
+        <div class="track-info-tablet">
+            <span class="track-name-tablet">Good 4 U</span>
+            <span class="track-artist-tablet">Olivia Rodrigo</span>
+        </div>
+        <button class="play-btn-tablet" data-track="8">
+            <i class="fa-solid fa-play"></i>
+        </button>
+    </div>
+    
+    <div class="track-tablet" data-track="9" data-src="assets/music/9.mp3">
+        <div class="track-icon-tablet">
+            <i class="fa-solid fa-music"></i>
+        </div>
+        <div class="track-info-tablet">
+            <span class="track-name-tablet">Industry Baby</span>
+            <span class="track-artist-tablet">Lil Nas X</span>
+        </div>
+        <button class="play-btn-tablet" data-track="9">
+            <i class="fa-solid fa-play"></i>
+        </button>
+    </div>
+    
+    <div class="track-tablet" data-track="10" data-src="assets/music/10.mp3">
+        <div class="track-icon-tablet">
+            <i class="fa-solid fa-music"></i>
+        </div>
+        <div class="track-info-tablet">
+            <span class="track-name-tablet">Heat Waves</span>
+            <span class="track-artist-tablet">Glass Animals</span>
+        </div>
+        <button class="play-btn-tablet" data-track="10">
+            <i class="fa-solid fa-play"></i>
+        </button>
+    </div>
+    <div class="track-tablet" data-track="11" data-src="assets/music/11.mp3">
+        <div class="track-icon-tablet">
+            <i class="fa-solid fa-music"></i>
+        </div>
+        <div class="track-info-tablet">
+            <span class="track-name-tablet">Stay</span>
+            <span class="track-artist-tablet">The Kid LAROI, Justin Bieber</span>
+        </div>
+        <button class="play-btn-tablet" data-track="11">
+            <i class="fa-solid fa-play"></i>
+        </button>
+    </div>
+    <div class="track-tablet" data-track="12" data-src="assets/music/12.mp3">
+        <div class="track-icon-tablet">
+            <i class="fa-solid fa-music"></i>
+        </div>
+        <div class="track-info-tablet">
+            <span class="track-name-tablet">Stay</span>
+            <span class="track-artist-tablet">The Kid LAROI, Justin Bieber</span>
+        </div>
+        <button class="play-btn-tablet" data-track="12">
+            <i class="fa-solid fa-play"></i>
+        </button>
+    </div>
+    <!-- КОНЕЦ НОВЫХ ТРЕКОВ ↑↑↑ -->
+    
+</div> <!-- Закрывающий тег для .tracks-list-tablet --> 
+            </div>
+            
+            <!-- Плеер справа -->
+            <div class="player-side">
+                <div class="player-main-tablet">
+                    <div class="now-playing-tablet">
+                        <div class="now-playing-icon">
+                            <i class="fa-solid fa-headphones"></i>
+                        </div>
+                        <div class="now-playing-info">
+                            <span class="now-playing-label">Сейчас играет:</span>
+                            <span class="current-track-tablet">Выберите трек</span>
+                        </div>
+                    </div>
+                    
+                    <div class="controls-tablet">
+                        <div class="controls-row">
+                            <button class="control-tablet prev-btn" title="Предыдущий">
+                                <i class="fa-solid fa-backward-step"></i>
+                            </button>
+                            
+                            <button class="control-tablet play-pause-btn" title="Воспроизвести">
+                                <i class="fa-solid fa-play"></i>
+                            </button>
+                            
+                            <button class="control-tablet next-btn" title="Следующий">
+                                <i class="fa-solid fa-forward-step"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="progress-tablet">
+                            <div class="progress-bar-tablet">
+                                <div class="progress-fill-tablet"></div>
+                            </div>
+                            <div class="time-tablet">
+                                <span class="current-time-tablet">0:00</span>
+                                <span class="total-time-tablet">0:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <audio id="audio-player" preload="metadata"></audio>
+    </div>
+</div>
+</div>
                     </div>
                </div>
           </div>
@@ -2163,7 +3112,228 @@ const container = document.querySelector("#body"),
     },
     retina_detect: !0
   });
+function initMusicPlayer() {
+    const audioPlayer = document.getElementById('audio-player');
+    const playPauseBtn = document.querySelector('.play-pause-btn');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const volumeSlider = document.querySelector('.volume-slider-tablet');
+    const volumeValue = document.querySelector('.volume-value-tablet');
+    const volumeIcon = document.querySelector('.volume-header i');
+    const progressBar = document.querySelector('.progress-bar-tablet');
+    const progressFill = document.querySelector('.progress-fill-tablet');
+    const currentTimeEl = document.querySelector('.current-time-tablet');
+    const totalTimeEl = document.querySelector('.total-time-tablet');
+    const currentTrackEl = document.querySelector('.current-track-tablet');
+    const tracks = document.querySelectorAll('.track-tablet');
+    const playBtns = document.querySelectorAll('.play-btn-tablet');
 
+    let currentTrackIndex = 0;
+    let isPlaying = false;
+
+    // Проверяем наличие элементов
+    if (!audioPlayer) {
+        console.error('Аудиоплеер не найден!');
+        return;
+    }
+
+    // Функция обновления кнопок
+    function updatePlayButtons() {
+        playBtns.forEach((btn, index) => {
+            if (index === currentTrackIndex && isPlaying) {
+                btn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+                btn.title = "Пауза";
+            } else {
+                btn.innerHTML = '<i class="fa-solid fa-play"></i>';
+                btn.title = "Воспроизвести";
+            }
+        });
+        
+        if (isPlaying) {
+            playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+            playPauseBtn.title = "Пауза";
+        } else {
+            playPauseBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
+            playPauseBtn.title = "Воспроизвести";
+        }
+    }
+
+    // Функция обновления иконки громкости
+    function updateVolumeIcon(volume) {
+        if (volume === 0) {
+            volumeIcon.className = 'fa-solid fa-volume-mute';
+        } else if (volume < 0.5) {
+            volumeIcon.className = 'fa-solid fa-volume-low';
+        } else {
+            volumeIcon.className = 'fa-solid fa-volume-high';
+        }
+    }
+
+    // Загрузить трек
+    function loadTrack(index) {
+        const track = tracks[index];
+        const src = track.getAttribute('data-src');
+        const trackName = track.querySelector('.track-name-tablet').textContent;
+        const trackArtist = track.querySelector('.track-artist-tablet').textContent;
+        
+        audioPlayer.src = src;
+        
+        // Обновить активный трек
+        tracks.forEach(t => t.classList.remove('active'));
+        track.classList.add('active');
+        
+        currentTrackIndex = index;
+        
+        // Обновить информацию о текущем треке
+        currentTrackEl.textContent = `${trackName} - ${trackArtist}`;
+        
+        // Обновить кнопки
+        updatePlayButtons();
+        
+        // Загрузить метаданные
+        audioPlayer.load();
+        
+        // Обновить информацию о длительности
+        audioPlayer.onloadedmetadata = function() {
+            const duration = audioPlayer.duration;
+            const minutes = Math.floor(duration / 60);
+            const seconds = Math.floor(duration % 60);
+            totalTimeEl.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            
+            // Сбросить прогресс
+            progressFill.style.width = '0%';
+            currentTimeEl.textContent = '0:00';
+        };
+    }
+
+    // Воспроизвести/пауза
+    function togglePlayPause() {
+        if (!audioPlayer.src) {
+            loadTrack(0);
+        }
+        
+        if (isPlaying) {
+            audioPlayer.pause();
+        } else {
+            audioPlayer.play().catch(error => {
+                console.error('Ошибка воспроизведения:', error);
+                loadTrack(0);
+                audioPlayer.play();
+            });
+        }
+        isPlaying = !isPlaying;
+        updatePlayButtons();
+    }
+
+    // Следующий трек
+    function nextTrack() {
+        let nextIndex = currentTrackIndex + 1;
+        if (nextIndex >= tracks.length) nextIndex = 0;
+        loadTrack(nextIndex);
+        if (isPlaying) audioPlayer.play();
+    }
+
+    // Предыдущий трек
+    function prevTrack() {
+        let prevIndex = currentTrackIndex - 1;
+        if (prevIndex < 0) prevIndex = tracks.length - 1;
+        loadTrack(prevIndex);
+        if (isPlaying) audioPlayer.play();
+    }
+
+    // Обновление прогресса
+    function updateProgress() {
+        const currentTime = audioPlayer.currentTime;
+        const duration = audioPlayer.duration;
+        
+        if (duration) {
+            const progressPercent = (currentTime / duration) * 100;
+            progressFill.style.width = `${progressPercent}%`;
+            
+            const minutes = Math.floor(currentTime / 60);
+            const seconds = Math.floor(currentTime % 60);
+            currentTimeEl.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        }
+    }
+
+    // Установить позицию воспроизведения
+    function setProgress(e) {
+        const width = progressBar.clientWidth;
+        const clickX = e.offsetX;
+        const duration = audioPlayer.duration;
+        
+        if (duration) {
+            const newTime = (clickX / width) * duration;
+            audioPlayer.currentTime = newTime;
+        }
+    }
+
+    // Установить громкость
+    function setVolume() {
+        const volume = this.value / 100;
+        audioPlayer.volume = volume;
+        volumeValue.textContent = `${this.value}%`;
+        updateVolumeIcon(volume);
+    }
+
+    // Назначить обработчики событий
+    playBtns.forEach((btn, index) => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            
+            if (currentTrackIndex === index && isPlaying) {
+                togglePlayPause();
+            } else {
+                loadTrack(index);
+                if (!isPlaying) {
+                    togglePlayPause();
+                } else {
+                    audioPlayer.play();
+                }
+            }
+        });
+    });
+
+    tracks.forEach((track, index) => {
+        track.addEventListener('click', (e) => {
+            if (!e.target.closest('.play-btn-tablet')) {
+                if (currentTrackIndex !== index) {
+                    loadTrack(index);
+                    if (!isPlaying) {
+                        togglePlayPause();
+                    } else {
+                        audioPlayer.play();
+                    }
+                } else {
+                    togglePlayPause();
+                }
+            }
+        });
+    });
+
+    // Основные события
+    playPauseBtn.addEventListener('click', togglePlayPause);
+    prevBtn.addEventListener('click', prevTrack);
+    nextBtn.addEventListener('click', nextTrack);
+    
+    // Громкость
+    volumeSlider.addEventListener('input', setVolume);
+    
+    // Прогресс-бар
+    progressBar.addEventListener('click', setProgress);
+    
+    // События аудио
+    audioPlayer.addEventListener('timeupdate', updateProgress);
+    audioPlayer.addEventListener('ended', nextTrack);
+    
+    // Инициализация громкости
+    updateVolumeIcon(audioPlayer.volume);
+    
+    // Загрузить первый трек
+    if (tracks.length > 0) {
+        loadTrack(0);
+    }
+}
 </script>
 <script>
 window.FontAwesomeKitConfig = {
@@ -2876,6 +4046,33 @@ window.FontAwesomeKitConfig = {
     console.error("".concat("Font Awesome Kit:", " ").concat(a));
   }
 });
+// Функция для переключения табов
+function initTabs() {
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Убираем активный класс у всех кнопок
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            // Скрываем все содержимое табов
+            tabPanes.forEach(pane => pane.classList.remove('active'));
+            
+            // Активируем текущую кнопку
+            button.classList.add('active');
+            
+            // Показываем соответствующий контент
+            const tabId = button.getAttribute('data-tab');
+            const correspondingPane = document.getElementById(`${tabId}-tab`);
+            if (correspondingPane) {
+                correspondingPane.classList.add('active');
+            }
+        });
+    });
+}
+
+// Инициализация табов после загрузки DOM
+document.addEventListener('DOMContentLoaded', initTabs);
 </script>
 <audio autoplay loop muted>
     <source src="music/1.mp3" type="audio/mpeg">
